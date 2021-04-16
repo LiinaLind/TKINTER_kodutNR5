@@ -1,0 +1,57 @@
+#Liina Lind
+#Kodutöö nr 5 proov
+
+from tkinter import *
+from tkinter import ttk
+from tkinter import messagebox
+
+window = Tk()
+
+#sisestus teade
+def kliki ():
+    #print(algustunnid.get() + "," + algusminutid.get())
+    print(algusaeg)
+    #print(lõputunnid.get() + "," + lõpuminutid.get())
+    print(lõpuaeg)
+
+#programmi nimi
+window.title("Tööaja arvestus")
+#programmi akna suurus
+window.geometry('600x300')
+#kirjastiil ja suurus
+FONT = "Tahoma 14"
+
+#tööaja algus
+alguslbl = Label(window, font=FONT, text="Tööaja algus:", anchor='w')
+alguslbl.grid(row=1, column=0, pady=(10,10))
+
+algustunnid = Entry(window, font=FONT, width=5)
+algustunnid.grid(row=1, column=1)
+
+algusminutid = Entry(window, font=FONT, width=5)
+algusminutid.grid(row=1, column=2)
+
+algusaeg = algustunnid.get() + "," + algusminutid.get()
+
+#tööaja lõpp
+lõpplbl = Label(window, font=FONT, text="Tööaja lõpp:", anchor='w')
+lõpplbl.grid(row=2, column=0, pady=(10,10))
+
+lõputunnid = Entry(window, font=FONT, width=5)
+lõputunnid.grid(row=2, column=1)
+
+lõpuminutid = Entry(window, font=FONT, width=5)
+lõpuminutid.grid(row=2, column=2)
+
+lõpuaeg = lõputunnid.get() + "," + lõpuminutid.get()
+
+#Joon
+separator = ttk.Separator(window, orient='horizontal')
+separator.grid(row=3, column=0, columnspan=2, sticky="ew", padx=20)
+
+#kinnitus nupp
+nupp = Button(window, font=FONT, text="OK", command= kliki )
+nupp.grid(row=4, column=2)
+
+
+window.mainloop()
